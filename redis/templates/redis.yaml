@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: {{ .Chart.Name }}-{{ .Chart.Version}}
+  name: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  containers:
+  - image: {{ .Values.redis_image.repository }}:{{ .Values.redis_image.tag }}
+    name: redis
+    ports:
+    - containerPort: {{ .Values.ports.containerPort }}
+      name: redis
+      protocol: {{ .Values.ports.protocol }}

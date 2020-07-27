@@ -1,0 +1,7 @@
+redis_image:
+  repository: redis
+  tag: 6.0.5
+namespace: web
+ports:
+  containerPort: 9090
+  protocol: TCP
